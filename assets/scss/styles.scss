@@ -1,0 +1,217 @@
+@import "vars";
+@import "mixins";
+@import "animations";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $body-font;
+  font-weight: 300;
+  font-size: 16px;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #141414;
+}
+
+main {
+  height: 100%;
+}
+
+video {
+  @include transform(translateX(-50%) translateY(-50%));
+  @include transition($prop: opacity);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none!important;
+    -webkit-appearance: none;
+}
+
+h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1.5rem;
+  font-weight: normal;
+  animation: flicker 5s infinite;
+  animation-delay: 8s;
+  margin-bottom: 1rem;
+   @media screen and (max-width: 680px) {
+      font-size: 1rem;
+     letter-spacing: 0.5rem;
+    }
+}
+
+h2 {
+  letter-spacing: 1rem;
+  font-size: 1.5rem;
+  font-weight: 100;
+  animation: flicker 5s infinite;
+  animation-delay: 8s;
+   @media screen and (max-width: 680px) {
+      font-size: 0.5rem;
+     letter-spacing: 0.2rem;
+    }
+}
+
+.container {
+  @include center();
+  opacity: 0;
+  animation: opening 8s linear forwards;
+  animation-delay: 1s;
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  text-align: center;
+}
+
+.row {
+  @include flex();
+
+  > * {
+    @include flex-child();
+  }
+
+  .col-xs-6 {
+     flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-xs-12  {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.enquire {
+  cursor: pointer;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background-color: #FFFFFF;
+  text-align: center;
+  width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    color: #666;
+    -webkit-animation: at-ripple 0.8s linear infinite;
+    animation: at-ripple 0.8s linear infinite;
+
+  .fa {
+    font-size: 24px;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+  }
+
+  &:hover .fa {
+    color: #000;
+}
+}
+
+.overlay {
+  @include transition();
+  @include box-shadow(0 0 30px rgba(0, 0, 0, 0.1));
+  position: fixed;
+  bottom: -400px;
+  width: 600px;
+  border-radius: 4px;
+  background-color: #E9E9E9;
+  padding: 2rem;
+  overflow-y: scroll;
+      left: 0;
+    right: 0;
+    margin: 0 auto;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    }
+
+  &.show {
+    bottom: 0;
+  }
+
+  h4 {
+    color: #666;
+    text-transform: uppercase;
+     padding: .5rem;
+  }
+
+  #submit {
+    outline: none;
+     font-weight: 500;
+    background-color: #FFF;
+    padding: .5rem;
+    text-transform: uppercase;
+    width: 10rem;
+    text-align: center;
+    color: #666;
+     margin-left: auto;
+    margin-top: 1rem;
+    display: block;
+    border:0;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover {
+        background-color: #FFF;
+      }
+  }
+
+}
+
+input, textarea {
+  @include transition($time: 0.2s);
+  border: 0;
+  font-size: 0.8rem;
+  background-color: #333;
+  color: #E9E9E9;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: .8rem;
+  margin-top: 1rem;
+  outline-offset: 0!important;
+
+  &:focus {
+    @include box-shadow(0 0 3px 1px rgba(0,0,0,0.8));
+  }
+
+  &.error {
+    @include box-shadow(0 0 3px 1px rgba(241, 28, 43,1));
+  }
+}
+
+textarea {
+  min-height: 10rem;
+}
+
+.response {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  &.error {
+    color: #ff484a;
+  }
+  &.success {
+    color: #333;
+  }
+}
+
+::selection {
+  background: #FFF;
+}
+
+::-moz-selection {
+  background: #FFF;
+}
