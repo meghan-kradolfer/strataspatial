@@ -6,7 +6,7 @@ const data = {
         link: "about.html"
       }
     ],
-  "content": []
+  "posts": []
 };
 
 const SPACE_ID = 'gjpem8dtmmqc';
@@ -31,7 +31,7 @@ function displayEntries(contentType) {
   return fetchEntriesForContentType(contentType)
     .then((entries) => {
       entries.forEach((entry) => {
-        data.content.push(entry.fields);
+        data.posts.push(entry.fields);
         data.loaded = true;
       });
 
@@ -52,8 +52,8 @@ function checkData() {
       $("#nav").html(Mustache.render(nav_template, data));
 
       // Blog Posts
-      const post_template = $("#post_template").html();
-      $("#posts").html(Mustache.render(post_template, data));
+      const posts_template = $("#posts_template").html();
+      $("#posts").html(Mustache.render(posts_template, data));
 
     }
 }
