@@ -1,0 +1,36 @@
+{
+  "name": "strataspatial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meghan-kradolfer/strataspatial.git"
+  },
+  "author": "Meghan Kradolfer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meghan-kradolfer/strataspatial/issues"
+  },
+  "homepage": "https://github.com/meghan-kradolfer/strataspatial#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.2",
+    "run-sequence": "^2.1.0"
+  },
+  "dependencies": {
+    "gulp-clean-css": "^3.8.0"
+  }
+}
